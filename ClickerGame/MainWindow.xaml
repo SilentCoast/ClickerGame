@@ -1,0 +1,32 @@
+﻿<Window x:Class="ClickerGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClickerGame"
+        mc:Ignorable="d"
+        x:Name="mainWindow"
+        Title="MainWindow" Height="450" Width="800" FontSize="20" MinWidth="380" MinHeight="250" GotFocus="mainWindow_GotFocus"   >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnKick" Grid.Row="4" Grid.Column="2" Click="btnKick_Click">Kick</Button>
+        <Button Name="btnShop" Grid.Row="3" Grid.Column="4" Click="btnShop_Click">Shop</Button>
+
+        <TextBlock x:Name="txtMoney" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Grid.Row="0" Grid.Column="3" Text="{Binding StringFormat={}{0} $, Path=Money}"></TextBlock>
+    </Grid>
+</Window>
