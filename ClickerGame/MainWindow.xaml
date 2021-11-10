@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClickerGame"
         mc:Ignorable="d"
         x:Name="mainWindow"
-        Title="MainWindow" Height="450" Width="800" FontSize="20" MinWidth="380" MinHeight="250" GotFocus="mainWindow_GotFocus"   >
+        Title="MainWindow" Height="450" Width="800" FontSize="20" MinWidth="650" MinHeight="400"    >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -24,9 +24,25 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Button x:Name="btnKick" Grid.Row="4" Grid.Column="2" Click="btnKick_Click">Kick</Button>
-        <Button Name="btnShop" Grid.Row="3" Grid.Column="4" Click="btnShop_Click">Shop</Button>
 
         <TextBlock x:Name="txtMoney" HorizontalAlignment="Center" VerticalAlignment="Center"
                     Grid.Row="0" Grid.Column="3" Text="{Binding StringFormat={}{0} $, Path=Money}"></TextBlock>
+        
+        
+        
+        
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <WrapPanel>
+            <TextBlock Name="txtImproveKick" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding StringFormat=Kick LVL: {0},Path=LvlKick}"></TextBlock>
+                <TextBlock Margin="20 0 0 0" Text="{Binding StringFormat=Improve for: {0}$,Path=Price}"></TextBlock>
+            </WrapPanel>
+            <Button x:Name="btnImproveKick" Margin="10" Click="btnImproveKick_Click" Content="ImproveKick" ></Button>
+            <WrapPanel>
+                <TextBlock Margin="10 0 0 0" Name="txtImprovePassiveKick" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding StringFormat=Passive Kick LVL: {0},Path=LvlPassiveKick}"></TextBlock>
+                <TextBlock Margin="20 0 0 0" Text="{Binding StringFormat=Improve for: {0}$,Path=Price2}"></TextBlock>
+            </WrapPanel>
+            <Button x:Name="btnImprovePassiveKick" Margin="10"  Click="btnImprovePassiveKick_Click" >Improve Passive Kick</Button>
+
+        </StackPanel>
     </Grid>
 </Window>

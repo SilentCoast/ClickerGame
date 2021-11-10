@@ -17,6 +17,13 @@ namespace ClickerGame
 
         private int lvlPassiveKick;
         public int LvlPassiveKick { get { return lvlPassiveKick; } set { lvlPassiveKick = value; OnPropertyChanged("LvlPassiveKick"); } }
+
+        private int price;
+        public int Price { get { return price; } set { price = value; OnPropertyChanged("Price"); } }
+
+        private int price2;
+        public int Price2 { get { return price2; } set { price2 = value; OnPropertyChanged("Price2"); } }
+
         /// <summary>
         /// 
         /// </summary>

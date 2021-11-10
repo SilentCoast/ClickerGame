@@ -23,17 +23,15 @@ namespace ClickerGame
     public partial class MainWindow : Window
     {
         UserData userData;
-        ShopWindow shopWindow;
+        
 
 
         public MainWindow()
         {           
             InitializeComponent();
-            userData = new UserData();
+            userData = new UserData() { LvlKick = 1, Price = 10, Price2 = 10 };
             DataContext = userData;
 
-            shopWindow = new ShopWindow() ;
-            
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -50,17 +48,32 @@ namespace ClickerGame
             userData.GetMoneyFromKick();            
         }
 
-        private void btnShop_Click(object sender, RoutedEventArgs e)
+        private void btnImproveKick_Click(object sender, RoutedEventArgs e)
         {
-            shopWindow.Show();                 
+            if (userData.Price > userData.Money)
+            {
+                MessageBox.Show("You need more money!");
+            }
+            else
+            {
+                userData.TakeMoney(userData.Price);
+                userData.LvlKick += 1;
+                userData.Price *= 2;
+            }
         }
 
-        private void mainWindow_GotFocus(object sender, RoutedEventArgs e)
+        private void btnImprovePassiveKick_Click(object sender, RoutedEventArgs e)
         {
-            userData.LvlKick = shopWindow.lvlKick;
-            userData.LvlPassiveKick = shopWindow.lvlPassiveKick;          
+            if (userData.Price2 > userData.Money)
+            {
+                MessageBox.Show("You need more money!");
+            }
+            else
+            {
+                userData.TakeMoney(userData.Price2);
+                userData.LvlPassiveKick += 1;
+                userData.Price2 *= 2;
+            }
         }
-
-       
     }
 }
